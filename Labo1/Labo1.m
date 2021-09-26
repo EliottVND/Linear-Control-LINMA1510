@@ -1,3 +1,4 @@
+function [Ss30,A,B,D,G,H,C,Tr,Tv] = Labo1()
 params = parameters();
 
 %Calcul de Ss30 : 
@@ -13,9 +14,10 @@ G = tf([B], [1, -A]);
 H = tf([D],[1, -A]);
 
 % BOUCLE FERMEE
-Kp = 3;
-Ki = 2;
-C = tf([Kp, Ki*Kp], [1, 0]);
 
-Tr = (C*G)/(1+C*G)
-Tv = (H)/(1+C*G)
+C = tf([params('Kp'), params('Ki')*params('Kp')], [1, 0]);
+
+Tr = (C*G)/(1+C*G);
+Tv = (H)/(1+C*G);
+
+end
