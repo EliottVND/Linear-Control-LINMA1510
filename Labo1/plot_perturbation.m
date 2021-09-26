@@ -1,17 +1,19 @@
 function plot_perturbation()
 
-tspan = [0:1:300];
+tspan = [0:1:50];
 
-V = 15;
+
 
 params = parameters();
 [Ss30,A,B,D,G,H,C,Tr,Tv] = Labo1()
 
+V = Ss30;
+
 if (params('Ki') == 0)
-    y = ((D*V)/(A-params('Kp')*B))*exp((-A+params('Kp')*B)*tspan)...
+    y = ((D*V)/(A-params('Kp')*B))*exp((A-params('Kp')*B)*tspan)...
         +(D*V)/(params('Kp')*B-A);
 else
-    a = 0.5*(params('Kp')*B-A)
+    a = 0.5*(params('Kp')*B-A);
     omega = sqrt(params('Ki')*params('Kp')*B-a^2);
     k = D*V/omega;
     y = k*exp(-a*tspan).*sin(omega*tspan);
