@@ -41,6 +41,12 @@ Gs_min = tf(num_m,denum_m)
 [num_v_m,denum_v_m] = ss2tf(A,D,C(1,:),0);
 Hs_min = tf(num_v_m,denum_v_m)
 
+% Non-minimum phase : 
+[num_nm,denum_nm] = ss2tf(A,B,C(2,:),0);
+Gs_n_min = tf(num_nm,denum_nm)
+[num_v_nm,denum_v_nm] = ss2tf(A,D,C(2,:),0);
+Hs_n_min = tf(num_v_nm,denum_v_nm)
+
 
 
 

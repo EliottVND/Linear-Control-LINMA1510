@@ -6,6 +6,7 @@ tspan = [0:1:50];
 
 params = parameters();
 [Ss30,A,B,D,G,H,C,Tr,Tv] = Labo1()
+pzmap(Tv)
 
 V = Ss30;
 
