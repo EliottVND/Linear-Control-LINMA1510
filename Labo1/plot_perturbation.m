@@ -1,6 +1,6 @@
 function plot_perturbation()
 
-tspan = [0:1:50];
+tspan = [0:1:150];
 
 
 
