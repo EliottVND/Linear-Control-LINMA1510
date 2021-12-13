@@ -33,7 +33,7 @@ d = V1bar/(C1*Rpbar*Rpbar);
 D = [d;0];
 
 
-% Boucle ouverte 
+% BOUCLE OUVERTE 
 
 % Minimum phase : 
 [num_m,denum_m] = ss2tf(A,B,C(1,:),0);
@@ -47,7 +47,9 @@ Gs_n_min = tf(num_nm,denum_nm);
 [num_v_nm,denum_v_nm] = ss2tf(A,D,C(2,:),0);
 Hs_n_min = tf(num_v_nm,denum_v_nm);
 
-% Boucle fermée
+step(Gs_n_min)
+
+% BOUCLE FERMEE
 Ti = 11.4893;
 PB = 156;
 Cs = zpk([-1/Ti],[0],100/PB);
@@ -58,8 +60,9 @@ Tv_min = Hs_min/(1+Gs_min*Cs)
 % Non-minimum phase :
 Tv_n_min = Hs_n_min/(1+Gs_n_min*Cs);
 Tr_n_min = (Gs_n_min*Cs)/(1+Cs*Gs_n_min);
+zpk(Tr_n_min)
 
-step(10*Tr_n_min)
+%step(10*Tv_n_min) ; 
 
 
 

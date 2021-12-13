@@ -6,12 +6,14 @@ params = parameters();
 [Ss30,A,B,D,G,H,C,Tr,Tv] = Labo1();
 
 y = params('u0')*(1-exp(-params('Kp')*B*tspan));
-step(params('h3')*Tr)
-% plot(tspan,y);
-% grid;
-% legend('y(t)')
-% title('Evolution of water level in the tank with time','FontSize', 12)
-% xlabel('time [s]','FontSize', 12) 
-% ylabel('water level [cm]','FontSize', 12) 
+[y, tspan] = step(params('h3')*Tr) ; 
+plot(tspan,y);
+hold on ;
+grid;
+legend('y(t)')
+title('Evolution of water level in the tank with time','FontSize', 12)
+xlabel('time [s]','FontSize', 12) 
+ylabel('water level [cm]','FontSize', 12) 
+hold off
 
 end

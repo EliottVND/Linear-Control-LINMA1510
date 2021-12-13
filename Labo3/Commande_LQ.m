@@ -13,7 +13,7 @@ Caug = [0 Cg 0]
 [num, den] = ss2tf(Aaug, Baug, Caug, 0) ; 
 Gequ = tf(num, den)
 R_q = transpose([0 Cg 0])
-Qx =  [5 0 0 ; 0 1 0 ; 0 0 1]
+Qx =  [5 0 0 ; 0 1 0 ; 0 0 1] % x = [position, vitesse, q]
 R = 1 ; 
 K = lqr(Aaug, Baug, Qx, R)  % = [k0, k1, ki]
 
